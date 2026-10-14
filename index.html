@@ -1,0 +1,527 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Kanav Baid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Literata:opsz,wght@7..72,300..700&amp;display=swap">
+<style>
+:root {
+  /* Layout: name and section links in a sticky left column beside one reading column of resume entries; a marigold highlighter marks the figures a reader should notice. */
+  --paper: #F7F8FA;
+  --surface: #EDF0F4;
+  --ink: #182231;
+  --ink-2: #4D5868;
+  --rule: #D8DDE4;
+  --mark: #F7CB57;
+  --fill: #F2B83A;
+  --todo: #B98A26;
+  --hatch: rgba(185, 138, 38, 0.14);
+  --focus: #2B63D9;
+
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-ui: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-text: "Literata", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F141B;
+    --surface: #171E28;
+    --ink: #E7EBF0;
+    --ink-2: #A8B2C0;
+    --rule: #263140;
+    --mark: #6A5220;
+    --fill: #F2B83A;
+    --todo: #A07E36;
+    --hatch: rgba(242, 184, 58, 0.09);
+    --focus: #84A9FF;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F141B;
+  --surface: #171E28;
+  --ink: #E7EBF0;
+  --ink-2: #A8B2C0;
+  --rule: #263140;
+  --mark: #6A5220;
+  --fill: #F2B83A;
+  --todo: #A07E36;
+  --hatch: rgba(242, 184, 58, 0.09);
+  --focus: #84A9FF;
+  color-scheme: dark;
+}
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration-color: var(--fill); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+.hl {
+  background-image: linear-gradient(var(--mark), var(--mark));
+  background-repeat: no-repeat;
+  background-size: 100% 0.4em;
+  background-position: 0 88%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-inline: 0.06em;
+}
+
+.page {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
+  padding-block: clamp(28px, 5vw, 64px) 48px;
+}
+.layout { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 28px; }
+
+/* Name */
+.site-head { min-width: 0; }
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 125;
+  font-weight: 800;
+  font-size: clamp(2.75rem, 2rem + 3vw, 3.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.tagline { margin: 16px 0 0; font-family: var(--font-ui); font-size: 0.9375rem; line-height: 1.45; color: var(--ink-2); }
+
+/* Intro */
+.intro { min-width: 0; max-width: 40rem; display: grid; gap: 16px; align-content: start; }
+.intro p { margin: 0; }
+.lede { font-size: clamp(1.375rem, 1.1rem + 1.1vw, 1.875rem); line-height: 1.32; letter-spacing: -0.005em; text-wrap: balance; }
+.sub { font-size: 1.0625rem; color: var(--ink-2); max-width: 36rem; }
+.intro .draft-note {
+  margin-top: 8px;
+  padding: 10px 14px;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+  border: 1px dashed var(--todo);
+  border-radius: 6px;
+  background-image: repeating-linear-gradient(135deg, var(--hatch) 0 1px, transparent 1px 7px);
+}
+
+/* Section links: chips on small screens, a sticky list on wide ones */
+.toc { min-width: 0; }
+.toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.toc a {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--surface);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  text-decoration: none;
+}
+.toc .t {
+  background-image: linear-gradient(var(--mark), var(--mark));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 0 0.42em;
+  transition: background-size 0.25s ease;
+}
+
+/* Sections */
+.sections { min-width: 0; }
+.section { padding-block: 40px; border-top: 1px solid var(--rule); scroll-margin-top: 16px; }
+.section-title {
+  margin: 0 0 26px;
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 125;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+.entries { display: grid; gap: 36px; }
+.entry { min-width: 0; }
+.entry-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 24px;
+  align-items: baseline;
+}
+.entry-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 108;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+.entry-date {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.entry-org { grid-column: 1 / -1; margin: 4px 0 0; font-family: var(--font-ui); font-size: 0.9375rem; line-height: 1.45; color: var(--ink-2); }
+.points { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 8px; max-width: 64ch; }
+.points li { position: relative; padding-left: 20px; font-size: 1.0625rem; line-height: 1.6; }
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.66em;
+  width: 7px;
+  height: 7px;
+  border-radius: 1.5px;
+  background: var(--fill);
+}
+.todo {
+  margin: 16px 0 0;
+  max-width: 44rem;
+  padding: 10px 14px;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+  border: 1px dashed var(--todo);
+  border-radius: 6px;
+  background-image: repeating-linear-gradient(135deg, var(--hatch) 0 1px, transparent 1px 7px);
+}
+.todo strong { font-weight: 600; color: var(--ink); }
+
+.entry-links { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.entry-links li { min-width: 0; font-family: var(--font-ui); font-size: 0.9375rem; line-height: 1.4; }
+.entry-links a { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+.entry-links .domain { margin-left: 8px; font-size: 0.8125rem; color: var(--ink-2); }
+
+/* Contact */
+.contact { margin: 0; display: grid; gap: 14px; }
+.contact > div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); align-items: baseline; column-gap: 12px; }
+.contact dt { font-family: var(--font-ui); font-size: 0.8125rem; font-weight: 600; color: var(--ink-2); }
+.contact dd { margin: 0; min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; font-family: var(--font-ui); font-size: 1.0625rem; }
+.contact a { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+.copy {
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.copy:hover { border-color: var(--ink-2); }
+.copy:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.vh { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Highlights */
+.highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14.5rem), 1fr));
+  gap: 26px 32px;
+}
+.highlights li { min-width: 0; }
+.hi-n {
+  display: block;
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 118;
+  font-weight: 800;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.hi-l { display: block; margin-top: 8px; font-family: var(--font-ui); font-size: 0.9375rem; line-height: 1.4; color: var(--ink-2); }
+
+/* Education */
+.subjects { margin: 14px 0 0; display: grid; gap: 10px; max-width: 64ch; }
+.subjects div { min-width: 0; }
+.subjects dt { font-family: var(--font-ui); font-size: 0.8125rem; font-weight: 600; color: var(--ink-2); }
+.subjects dd { margin: 2px 0 0; font-size: 1.0625rem; line-height: 1.5; }
+
+.site-foot {
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+.site-foot p { margin: 0; }
+
+@media (max-width: 559px) {
+  .entry-head { grid-template-columns: minmax(0, 1fr); }
+  .entry-date { margin-top: 4px; }
+  .contact > div { grid-template-columns: minmax(0, 1fr); row-gap: 4px; }
+}
+@media (min-width: 1000px) {
+  .layout {
+    grid-template-columns: 272px minmax(0, 1fr);
+    column-gap: clamp(48px, 6vw, 88px);
+    row-gap: 40px;
+    align-items: start;
+  }
+  .site-head { grid-column: 1; grid-row: 1; }
+  .intro { grid-column: 2; grid-row: 1; }
+  .toc {
+    grid-column: 1;
+    grid-row: 2;
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 40px);
+  }
+  .toc ol { display: grid; gap: 2px; }
+  .toc a { background: transparent; padding: 6px 0; border-radius: 0; font-size: 0.9375rem; }
+  .toc a:hover .t,
+  .toc a[aria-current="true"] .t { background-size: 100% 0.42em; }
+  .sections { grid-column: 2; grid-row: 2; }
+}
+@media (prefers-reduced-motion: reduce) { .toc .t { transition: none; } }
+</style>
+
+<div class="page">
+  <div class="layout">
+    <header class="site-head">
+      <h1 class="name">Kanav Baid</h1>
+      <p class="tagline">IB Diploma student<br>Bangalore, India</p>
+    </header>
+
+    <div class="intro">
+      <p class="lede">Economics olympiad medallist, published student researcher and volleyball captain, in my final year at The International School of Bangalore.</p>
+      <p class="sub">This page covers my research, leadership, service, sport and music, with photos and links to the work.</p>
+      <p class="draft-note">This is a draft. Dashed boxes mark the photos and links I’m still adding.</p>
+    </div>
+
+    <nav class="toc" aria-label="Sections">
+      <ol><li><a href="#highlights"><span class="t">Highlights</span></a></li><li><a href="#education"><span class="t">Education</span></a></li><li><a href="#research"><span class="t">Academics and research</span></a></li><li><a href="#leadership"><span class="t">Leadership</span></a></li><li><a href="#service"><span class="t">Service</span></a></li><li><a href="#sport-music"><span class="t">Sport and music</span></a></li><li><a href="#contact"><span class="t">Contact</span></a></li></ol>
+    </nav>
+
+    <main class="sections">
+      <section class="section" id="highlights" aria-labelledby="h-highlights">
+        <h2 class="section-title" id="h-highlights">Highlights</h2>
+        <ul class="highlights"><li><span class="hi-n"><span class="hl">Bronze</span></span><span class="hi-l">International Economics Olympiad 2026, China</span></li><li><span class="hi-n"><span class="hl">Gold</span></span><span class="hi-l">Nepal Economics Olympiad 2026, ranked #1 overall of 2,131 students</span></li><li><span class="hi-n"><span class="hl">Published</span></span><span class="hi-l">Sole-authored paper in HISAN: Journal of History Association of Nepal</span></li><li><span class="hi-n"><span class="hl">ISSO</span></span><span class="hi-l">National champions in volleyball with the TISB team</span></li><li><span class="hi-n"><span class="hl">2,000+</span></span><span class="hi-l">children taught the economics course my team designed</span></li><li><span class="hi-n"><span class="hl">3,000+</span></span><span class="hi-l">attendees registered through the system I set up for Vivum</span></li></ul>
+      </section>
+
+      <section class="section" id="education" aria-labelledby="h-education">
+        <h2 class="section-title" id="h-education">Education</h2>
+        <div class="entries">
+          <article class="entry">
+            <div class="entry-head">
+              <h3 class="entry-title">The International School of Bangalore</h3>
+              <p class="entry-date">Expected 2027</p>
+              <p class="entry-org">IB Diploma Programme</p>
+            </div>
+            <dl class="subjects">
+              <div><dt>Higher Level</dt><dd>Mathematics: Analysis and Approaches, Economics, History</dd></div>
+              <div><dt>Standard Level</dt><dd>French ab initio, English Language and Literature, Physics</dd></div>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="research" aria-labelledby="h-research">
+        <h2 class="section-title" id="h-research">Academics and research</h2>
+        <div class="entries">
+          <article class="entry">
+            <div class="entry-head">
+              <h3 class="entry-title">Economics Olympiads</h3>
+              <p class="entry-date">2026</p>
+              <p class="entry-org">Nepal Economics Olympiad (NEO) and International Economics Olympiad (IEO)</p>
+            </div>
+            <ul class="points"><li>Ranked <span class="hl">#1 overall</span> at NEO 2026 and won gold. 2,131 students from 191 institutions entered the regional round.</li><li>Selected as one of five students to represent Nepal at IEO 2026 in China, and won a <span class="hl">bronze medal</span>.</li></ul><ul class="entry-links"><li><a href="https://ecolympnepal.org/neo-2026/" target="_blank" rel="noopener noreferrer">NEO 2026 results</a><span class="domain">ecolympnepal.org</span></li></ul>
+            <p class="todo"><strong>Still to add.</strong> Photos: the IEO medal ceremony; Team Nepal in China. Links: IEO results or your medal certificate.</p>
+          </article>
+          <article class="entry">
+            <div class="entry-head">
+              <h3 class="entry-title">Student Researcher</h3>
+              <p class="entry-date">2025</p>
+              <p class="entry-org">Tribhuvan University. Mentor: Prof. Dol Raj Kafle</p>
+            </div>
+            <ul class="points"><li>Researched the origins of tantric practice in the Kathmandu Valley and its role in society.</li><li>Did fieldwork at 2 temples, interviewed 5+ tantric practitioners, and synthesised 20+ academic texts.</li><li><span class="hl">Published</span> as sole author in HISAN: Journal of History Association of Nepal, Vol. 11, No. 1 (December 2025), pp. 15–23.</li></ul><ul class="entry-links"><li><a href="https://www.nepjol.info/index.php/hisan/article/view/92739" target="_blank" rel="noopener noreferrer">Hindu Tantric Practices of Kathmandu Valley</a><span class="domain">nepjol.info</span></li></ul>
+            <p class="todo"><strong>Still to add.</strong> Photos: fieldwork at the temples.</p>
+          </article>
+        </div>
+      </section>
+      <section class="section" id="leadership" aria-labelledby="h-leadership">
+        <h2 class="section-title" id="h-leadership">Leadership</h2>
+        <div class="entries">
+          <article class="entry">
+            <div class="entry-head">
+              <h3 class="entry-title">Deputy Head of House</h3>
+              <p class="entry-date">2025–26</p>
+              <p class="entry-org">TISB boarding house</p>
+            </div>
+            <ul class="points"><li>Led a community of <span class="hl">300+ boarders</span>, working with 20+ prefects to uphold boarding life.</li><li>Acted as the link between students and staff to make the house more inclusive.</li><li>Organised cultural nights and bonding activities.</li></ul>
+            <p class="todo"><strong>Still to add.</strong> Photos: a cultural night you organised. Links: a school post about a house event.</p>
+          </article>
+          <article class="entry">
+            <div class="entry-head">
+              <h3 class="entry-title">Head of IT</h3>
+              <p class="entry-date">2026</p>
+              <p class="entry-org">Vivum 2026, India’s largest student-led charity festival, hosted by TISB</p>
+            </div>
+            <ul class="points"><li>Built and launched the event website and set up online registration for <span class="hl">3,000+ attendees</span> from 20+ schools.</li><li>Planned the festival’s tech needs, led a 10+ member IT team, and ran live tech operations across both days.</li></ul><ul class="entry-links"><li><a href="https://vivum.tisb.org/" target="_blank" rel="noopener noreferrer">Vivum 2026 website</a><span class="domain">vivum.tisb.org</span></li></ul>
+            <p class="todo"><strong>Still to add.</strong> Photos: the IT desk during the festival.</p>
+          </article>
+          <article class="entry">
+            <div class="entry-head">
+              <h3 class="entry-title">Organising Member, Events</h3>
+              <p class="entry-date">2026</p>
+              <p class="entry-org">XAVAGE ’26, TISB’s business and economics charity fest</p>
+            </div>
+            <ul class="points"><li>Organising events for the fest on 28 October 2026, with <span class="hl">34+ schools</span> taking part.</li><li>Responsible for event rules and logistics; helped raise 72K+ in prize money.</li></ul><ul class="entry-links"><li><a href="https://xavage26.vercel.app/" target="_blank" rel="noopener noreferrer">XAVAGE ’26 website</a><span class="domain">xavage26.vercel.app</span></li></ul>
+            <p class="todo"><strong>Still to add.</strong> Photos: an event on the day.</p>
+          </article>
+          <article class="entry">
+            <div class="entry-head">
+              <h3 class="entry-title">Organising Member</h3>
+              <p class="entry-date">2026–present</p>
+              <p class="entry-org">Politics &amp; Philosophy Club, TISB</p>
+            </div>
+            <ul class="points"><li>Planned <span class="hl">20+ discussions</span> on topics from free will to AI and moderated sessions for 10+ students.</li><li>The club also runs regular debates and a magazine.</li></ul>
+            <p class="todo"><strong>Still to add.</strong> Photos: a session in progress. Links: the club magazine.</p>
+          </article>
+        </div>
+      </section>
+      <section class="section" id="service" aria-labelledby="h-service">
+        <h2 class="section-title" id="h-service">Service</h2>
+        <div class="entries">
+          <article class="entry">
+            <div class="entry-head">
+              <h3 class="entry-title">Founder and Curriculum Lead</h3>
+              <p class="entry-date">2024–26</p>
+              <p class="entry-org">Global Exchange Forum, partnered with Shape the Future, a student-run NGO for underprivileged children</p>
+            </div>
+            <ul class="points"><li>Led a 5-member team to design a 12-week economics and finance course on saving and banking.</li><li>Course taught to <span class="hl">2,000+ children</span> across 5+ schools through Shape the Future.</li></ul>
+            <p class="todo"><strong>Still to add.</strong> Photos: the course workbook or slides; your team. Links: a course outline or sample lesson; Shape the Future’s page.</p>
+          </article>
+          <article class="entry">
+            <div class="entry-head">
+              <h3 class="entry-title">Hindi Peer Tutor</h3>
+              <p class="entry-date">2025–present</p>
+              <p class="entry-org">TISBuddy, TISB’s peer-tutoring programme</p>
+            </div>
+            <ul class="points"><li>Tutored <span class="hl">20+ students</span> from IGCSE and Middle School in Hindi over 30+ sessions.</li><li>Designed practice worksheets.</li></ul>
+            <p class="todo"><strong>Still to add.</strong> Photos: a worksheet you designed.</p>
+          </article>
+        </div>
+      </section>
+      <section class="section" id="sport-music" aria-labelledby="h-sport-music">
+        <h2 class="section-title" id="h-sport-music">Sport and music</h2>
+        <div class="entries">
+          <article class="entry">
+            <div class="entry-head">
+              <h3 class="entry-title">Team Captain and Center</h3>
+              <p class="entry-date">2024–present</p>
+              <p class="entry-org">TISB varsity volleyball</p>
+            </div>
+            <ul class="points"><li>Won the <span class="hl">ISSO National Championship</span> with the TISB team.</li><li>Won 6+ awards across 10+ tournaments and led the team to 5+ wins.</li><li>Mentored junior players.</li></ul>
+            <p class="todo"><strong>Still to add.</strong> Photos: the team with the ISSO trophy; you in play. Links: ISSO results or a school post about the win.</p>
+          </article>
+          <article class="entry">
+            <div class="entry-head">
+              <h3 class="entry-title">Guitarist and Vocalist</h3>
+              <p class="entry-date">2024–25</p>
+              <p class="entry-org">GAVK, TISB’s student Bollywood and indie band</p>
+            </div>
+            <ul class="points"><li>Performed at school and public venues, including a live show at Qutub in Domlur, Bangalore.</li><li>Rehearsed weekly with fellow student musicians.</li></ul>
+            <p class="todo"><strong>Still to add.</strong> Photos: GAVK on stage at Qutub. Links: a recording or video of a performance.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="h-contact">
+        <h2 class="section-title" id="h-contact">Contact</h2>
+        <dl class="contact">
+          <div>
+            <dt>Email</dt>
+            <dd><a id="email-text" href="mailto:kanav.baid@outlook.com">kanav.baid@outlook.com</a><button type="button" class="copy" id="copy-email" data-copy="kanav.baid@outlook.com">Copy</button><span class="vh" id="copy-status" aria-live="polite"></span></dd>
+          </div>
+          <div>
+            <dt>LinkedIn</dt>
+            <dd><a href="https://www.linkedin.com/in/kanav-baid-a28b5241b/" target="_blank" rel="noopener noreferrer">linkedin.com/in/kanav-baid-a28b5241b</a></dd>
+          </div>
+        </dl>
+      </section>
+
+      <footer class="site-foot">
+        <p>Kanav Baid, updated October 2026</p>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script>
+(function () {
+  var links = {};
+  document.querySelectorAll('.toc a').forEach(function (a) {
+    links[a.getAttribute('href').slice(1)] = a;
+  });
+  var sections = document.querySelectorAll('.section');
+  if (!('IntersectionObserver' in window) || !sections.length) return;
+  var current = null;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var a = links[e.target.id];
+      if (!a || a === current) return;
+      if (current) current.removeAttribute('aria-current');
+      a.setAttribute('aria-current', 'true');
+      current = a;
+    });
+  }, { rootMargin: '-30% 0px -65% 0px' });
+  sections.forEach(function (s) { io.observe(s); });
+})();
+
+(function () {
+  var btn = document.getElementById('copy-email');
+  var status = document.getElementById('copy-status');
+  if (!btn) return;
+  function reset() { btn.textContent = 'Copy'; }
+  function copied() {
+    btn.textContent = 'Copied';
+    if (status) status.textContent = 'Email address copied';
+    setTimeout(reset, 2000);
+  }
+  function selectInstead() {
+    var el = document.getElementById('email-text');
+    try {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      btn.textContent = 'Selected';
+      if (status) status.textContent = 'Email address selected';
+      setTimeout(reset, 2500);
+    } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(copied, selectInstead);
+      } else {
+        selectInstead();
+      }
+    } catch (e) {
+      selectInstead();
+    }
+  });
+})();
+</script>
+
+</body></html>
